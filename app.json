@@ -1,0 +1,124 @@
+{
+  "apps": [
+    {
+      "name": "api.pulsecoinlist.com",
+      "script": "node",
+      "args": "./dist/main.js",
+      "watch": false,
+      "autorestart": true
+    },
+    {
+      "name": "crons-fetch-coins-list.v1",
+      "script": "node",
+      "args": "./dist/modules/crons/fetch-coins-list.v1.cron.js",
+      "instances": 1,
+      "cron_restart": "0 * * * *",
+      "watch": false,
+      "autorestart": false
+    },
+    {
+      "name": "crons-fetch-coins-list.v2",
+      "script": "node",
+      "args": "./dist/modules/crons/fetch-coins-list.v2.cron.js",
+      "instances": 1,
+      "cron_restart": "0 * * * *",
+      "watch": false,
+      "autorestart": false
+    },
+    {
+      "name": "fetch-coins-stats.tier0",
+      "script": "node",
+      "args": "./dist/modules/processors/script/fetch-coins-stats.script.js",
+      "instances": 1,
+      "watch": false,
+      "autorestart": true,
+      "env": {
+        "PROCESSOR_TIER": "TIER0"
+      }
+    },
+    {
+      "name": "fetch-coins-stats.tier1",
+      "script": "node",
+      "args": "./dist/modules/processors/script/fetch-coins-stats.script.js",
+      "instances": 1,
+      "watch": false,
+      "autorestart": true,
+      "env": {
+        "PROCESSOR_TIER": "TIER1"
+      }
+    },
+    {
+      "name": "fetch-coins-stats.tier2",
+      "script": "node",
+      "args": "./dist/modules/processors/script/fetch-coins-stats.script.js",
+      "instances": 1,
+      "watch": false,
+      "autorestart": true,
+      "env": {
+        "PROCESSOR_TIER": "TIER2"
+      }
+    },
+    {
+      "name": "fetch-coins-stats.collect-gas-now",
+      "script": "node",
+      "args": "./dist/modules/processors/script/collect-gas-now.script.js",
+      "instances": 1,
+      "watch": false,
+      "autorestart": true
+    },
+    {
+      "name": "crons-fetch-coins-comparison",
+      "script": "node",
+      "args": "./dist/modules/crons/fetch-coins-comparison.cron.js",
+      "instances": 1,
+      "cron_restart": "*/15 * * * *",
+      "watch": false,
+      "autorestart": false
+    },
+    {
+      "name": "crons-sync-native-coin-supply",
+      "script": "node",
+      "args": "./dist/modules/crons/sync-native-coin-supply.cron.js",
+      "instances": 1,
+      "cron_restart": "*/1 * * * *",
+      "watch": false,
+      "autorestart": false
+    },
+    {
+      "name": "crons-collect-buy-sell-txns",
+      "script": "node",
+      "args": "./dist/modules/crons/collect-buy-sell-txns.cron.js",
+      "instances": 1,
+      "cron_restart": "*/5 * * * *",
+      "watch": false,
+      "autorestart": false
+    },
+    {
+      "name": "crons-sync-coin-holders",
+      "script": "node",
+      "args": "./dist/modules/crons/sync-coin-holders.cron.js",
+      "instances": 1,
+      "cron_restart": "*/1 * * * *",
+      "watch": false,
+      "autorestart": false
+    },
+    {
+      "name": "crons-sync-epochs",
+      "script": "node",
+      "args": "./dist/modules/crons/sync-epochs.cron.js",
+      "instances": 1,
+      "cron_restart": "*/1 * * * *",
+      "watch": false,
+      "autorestart": false
+    },
+    {
+      "name": "crons-sync-piteas-tokens",
+      "script": "node",
+      "args": "./dist/modules/crons/sync-piteas-tokens.cron.js",
+      "instances": 1,
+      "cron_restart": "*/1 * * * *",
+      "watch": false,
+      "autorestart": false
+    }
+  ]
+}
